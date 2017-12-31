@@ -1,0 +1,23 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Año</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let model of data.models | keys">
+    <tr *ngFor="let year of model.value.years | keys" (click)="rowSelected(model.key, year.key)">
+      <td>
+        <img [src]="'assets/' + year.value.photo" alt="{{model.value.name}}" class="img-thumbnail">
+      </td>
+      <td>{{data.name}}</td>
+      <td>{{model.value.name}} </td>
+      <td>{{year.key}}</td>
+      <td>{{year.value.price}}</td>
+    </tr>
+  </tbody>
+
+</table>

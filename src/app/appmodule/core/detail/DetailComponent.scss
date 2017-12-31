@@ -1,0 +1,25 @@
+
+$border-gray: #868686;
+.car-detail{
+  .image-detail{
+    width: 100%;
+  }
+  .row-profile{
+    display: flex;
+    border-left: 1px solid $border-gray;
+    border-right: 1px solid $border-gray;
+    border-bottom: 1px solid $border-gray;
+    padding-top: 15px;
+    &:first-child{
+      border-top: 1px solid $border-gray;
+      justify-content: center; 
+    }
+
+    div{
+      justify-content: space-between;
+      text-align: center;
+      width: 50%;
+    }
+    
+  }
+}

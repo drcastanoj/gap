@@ -1,0 +1,40 @@
+<div class="card card-car-comparasion" style="width: 18rem;">
+  <!-- <img class="card-img-top" src="~assets/img/cadillac.jpg" alt="Card image cap"> -->
+  <div *ngIf="!showInputs" class="card-body add-car" (click)="addCar()">
+    <div class="icon icon-plus-circle"></div>
+    <h2 class="card-title">Agrega un vehiculo </h2>
+  </div>
+
+  <div *ngIf="showInputs && !carSelected" class="card-body selected-car">
+    <div class="form-group">
+      <car-dropdown [data]="cars" title="Selecciona una marca" (valueSelected)="selectedBrand($event)"></car-dropdown>
+    </div>
+    <div class="form-group">
+      <car-dropdown *ngIf="filterCars.brand" [data]="cars[filterCars.brand].models" title="Selecciona una modelo" (valueSelected)="selectedModel($event)"></car-dropdown>
+    </div>
+    <div class="form-group">
+      <car-dropdown *ngIf="filterCars.model" [data]="cars[filterCars.brand].models[filterCars.model].years" title="Selecciona un año"
+        (valueSelected)="selectedYear($event)"></car-dropdown>
+    </div>
+  </div>
+
+  <div *ngIf="carSelected">
+    <img class="card-img-top" [src]="'assets/' + carSelected.photo" [alt]="carSelected.model">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h5>{{carSelected.brand}}</h5>
+      </li>
+      <li class="list-group-item">
+        <h5>{{carSelected.model}}</h5>
+      </li>
+      <li class="list-group-item">
+        <h5>{{carSelected.year}}</h5>
+      </li>
+    </ul>
+    <div class="card-body">
+      <a class="card-link" (click)="carChange()"> Cambiar vehiculo</a>
+      <a class="card-link" (click)="carDelete()">Eliminar</a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="dropdown" [ngClass]="{ show: true}">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="openDropdown()">
+    {{value ? value.value : title}}
+  </button>
+  <div class="dropdown-menu " [ngClass]="{ show: showDropdown}">
+    <a class="dropdown-item" *ngFor="let obj of data | keys" (click)="optionSelected(obj.key)">
+      {{ obj.value.name?obj.value.name: obj.key}}
+    </a>
+  </div>
+</div>

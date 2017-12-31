@@ -1,0 +1,14 @@
+
+table{
+  border: 1px solid #000;
+  thead{
+    text-align: center;
+    background: #38A69B;
+  }
+  tbody{
+    text-align: center;
+    .img-thumbnail{
+      max-height: 50px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.card-car-comparasion{
+  min-height: 450px;
+  .add-car{
+    line-height: 200px;
+    margin-top: 20px;
+    text-align: center;
+    vertical-align: middle;
+    .icon-plus-circle{
+      font-size: 50px;
+    }
+  }
+  .selected-car{
+    margin-top: 50%;
+  }
+  .card-img-top{
+    max-height: 200px;
+    min-height: 200px;
+  }
+}
