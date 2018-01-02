@@ -1,6 +1,8 @@
 .card-car-comparasion{
+  margin-bottom: 50px;
   min-height: 500px;
   .add-car{
+    cursor: pointer;
     line-height: 200px;
     margin-top: 20px;
     text-align: center;
@@ -15,5 +17,11 @@
   .card-img-top{
     max-height: 200px;
     min-height: 200px;
+  }
+  .card-body{
+    a{
+      cursor: pointer;
+      color: #4F80E1;
+    }
   }
 }

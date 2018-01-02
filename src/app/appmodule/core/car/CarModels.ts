@@ -1,5 +1,5 @@
 
-
+// load  images 
 import 'app/assets/img/cadillac.jpg';
 import 'app/assets/img/cadillac2.jpg';
 import 'app/assets/img/cadillac3.jpg';
@@ -34,6 +34,7 @@ export interface ICarSelected {
   photo?: string;
 }
 
+/** mock with cars map */
 export const cars: ICar = {
   bmx: {
     name: 'BMW',
