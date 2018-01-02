@@ -24,8 +24,8 @@ What you need to run this app:
 * Ensure you're running the latest versions Node `v6.x.x`+ (or `v7.x.x`) and NPM `3.x.x`+
 
 ## Installing and  Running the app
-* `npm install` to install all dependencies or `yarn`
-* `npm start` to start the dev server in another tab
+* `npm install` to install all dependencies
+* `npm start` to start the dev server
 After you have installed all dependencies you can now run the app.  Open browser in `http://localhost:3000` 
 
 
