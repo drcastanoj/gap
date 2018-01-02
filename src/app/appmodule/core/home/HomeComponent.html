@@ -1,13 +1,51 @@
-<div class="">
-
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Selecciona una marca </label>
-    <div class="col-sm-10">
-      <car-dropdown [data]="cars" title="Selecciona una marca" (valueSelected)="brandSelected($event)"></car-dropdown>
-    </div>
-  </div>
-</div>
+<h1>
+  Lista de carros
+</h1>
+<nav class="navbar navbar-light bg-light ">
+  <form class="form-inline">
+    <span> Selecciona una marca</span>
+    <car-dropdown [data]="cars" title="Selecciona una marca" (valueSelected)="brandSelected($event)"></car-dropdown>
+  </form>
+</nav>
 
 <div *ngIf="cars && brand">
   <car-table [data]="cars[brand]" (carSelected)="carSelected($event)"></car-table>
 </div>
+
+<car-modal #modalCarDetail>
+  <div class="app-modal-header">
+    <h3 class="modal-title">Informacion detallada</h3>
+  </div>
+  <div class="app-modal-body">
+    <div class="row car-detail">
+
+      <div class="col-md-5 col-sm-6 col-xs-12">
+        <div class="text-center">
+          <img [src]="'assets/' + carDetail.photo" class="image-detail rounded" alt="...">
+        </div>
+      </div>
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="row-profile">
+          <div>
+            <h2 class="card-title">{{carDetail.brand}}</h2>
+            <p> Marca</p>
+          </div>
+          <div>
+            <h2 class="card-title">{{carDetail.model}}</h2>
+            <p> Modelo</p>
+          </div>
+        </div>
+        <div class="row-profile">
+          <div>
+            <h2 class="card-title">{{carDetail.price}}</h2>
+            <p> Precio</p>
+          </div>
+          <div>
+            <h2 class="card-title">{{carDetail.year}}</h2>
+            <p> Año</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</car-modal>

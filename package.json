@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --inline --progress --port 5000",
     "start:d": "webpack-dev-server --inline -d --progress --port 5000",
     "test": "karma start",
-    "test:d": "karma start --no-single-run",
+    "test:d": "karma start --no-single-run -test",
     "build": "webpack --config config/webpack.prod.js  --progress --profile --bail",
     "build:d": "webpack --config config/webpack.prod.js -d --progress --profile --bail"
   },
@@ -53,6 +53,7 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
+    "karma-junit-reporter": "^1.2.0",
     "karma-remap-istanbul": "^0.6.0",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "2.0.3",

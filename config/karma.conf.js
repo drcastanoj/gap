@@ -1,6 +1,19 @@
 var webpackConfig = require('./webpack.test');
-
+var argv = require('yargs').argv;
 module.exports = function (config) {
+
+  if (argv.test) {
+    webpackConfig.module.rules.push(
+      {
+        test: /\.ts$/,
+        enforce: 'post',
+        exclude: [/\Test\.ts$/, /node_modules/],
+        loader: 'istanbul-instrumenter-loader'
+      });
+    reporters = ['kjhtml', 'progress', 'junit', 'coverage'];
+  } else {
+    reporters = ['kjhtml'];
+  }
   const coverage = config.singleRun ? ['coverage'] : [];
   var _config = {
     basePath: '',
@@ -33,26 +46,44 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: true,
 
-    reporters: ['kjhtml']
-      .concat(coverage)
-      .concat(coverage.length > 0 ? ['karma-remap-istanbul'] : []),
-
-    remapIstanbulReporter: {
-      src: 'coverage/chrome/coverage-final.json',
-      reports: {
-        html: 'coverage',
-      },
+    reporters: reporters,
+    // Configuración para reporte de junit
+    junitReporter: {
+      outputDir: 'target/test-report/', // results will be saved as $outputDir/$browserName.xml
+      outputFile: undefined // if included, results will be saved as $outputDir/$browserName/$outputFile
     },
 
+    // Configuración para reporte de cobertura
     coverageReporter: {
-      reporters: [
-        { type: 'json' },
-      ],
-      dir: './coverage/',
-      subdir: (browser) => {
-        return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
+      includeAllSources: true,
+      instrumenterOptions: {
+        istanbul: { noCompact: true }
       },
+      reporters: [
+        {
+          dir: 'target/coverage/',
+          subdir: '.',
+          type: 'html'
+        }, {
+          dir: 'target/coverage/',
+          subdir: '.',
+          type: 'cobertura'
+        }, {
+          dir: 'target/coverage/',
+          subdir: '.',
+          type: 'json'
+        }, {
+          dir: 'target/coverage/',
+          subdir: '.',
+          type: 'lcovonly',
+          file: 'coverage.lcov'
+        }
+      ]
     },
+    // para evitar error en debug
+    mime: {
+      'text/x-typescript': ['ts', 'tsx']
+    }
   };
 
   config.set(_config);

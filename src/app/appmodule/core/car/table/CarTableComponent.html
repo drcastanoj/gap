@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped table-dark">
   <thead>
     <tr>
       <th scope="col">Imagen</th>
@@ -6,6 +6,8 @@
       <th scope="col">Modelo</th>
       <th scope="col">Año</th>
       <th scope="col">Precio</th>
+      <th scope="col">Accion</th>
+
     </tr>
   </thead>
   <tbody *ngFor="let model of data.models | keys">
@@ -17,6 +19,10 @@
       <td>{{model.value.name}} </td>
       <td>{{year.key}}</td>
       <td>{{year.value.price}}</td>
+      <td>
+        <div class="icon-search-plus"></div>
+      </td>
+
     </tr>
   </tbody>
 

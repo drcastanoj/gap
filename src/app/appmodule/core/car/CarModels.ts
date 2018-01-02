@@ -27,11 +27,11 @@ export interface ICar {
 
 /** selected car  */
 export interface ICarSelected {
-  brand: string;
-  model: string;
-  year: number;
-  price: number;
-  photo: string;
+  brand?: string;
+  model?: string;
+  year?: number;
+  price?: number;
+  photo?: string;
 }
 
 export const cars: ICar = {

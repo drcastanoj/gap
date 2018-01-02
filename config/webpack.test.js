@@ -18,13 +18,6 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        enforce: 'post',
-        include: path.resolve('../app'),
-        loader: 'istanbul-instrumenter-loader',
-        exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
-      },
-      {
-        test: /\.ts$/,
         enforce: 'pre',
         loader: 'tslint-loader',
         options: {

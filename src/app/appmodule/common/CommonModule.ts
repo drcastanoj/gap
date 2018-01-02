@@ -4,20 +4,26 @@ import { MenuComponent } from './menu/MenuComponent';
 import { RouterModule } from '@angular/router';
 import { KeysPipe } from './pipe/KeysPipe';
 import { DropdownComponent } from './dropdown/DropdownComponent';
+import { ModalComponent } from './modal/ModalComponent';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     MenuComponent,
     KeysPipe,
-    DropdownComponent
+    DropdownComponent,
+    ModalComponent
   ],
   exports: [
     MenuComponent,
     KeysPipe,
-    DropdownComponent
+    DropdownComponent,
+    ModalComponent
   ],
   providers: [
   ]

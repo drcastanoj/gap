@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarService } from '../car/CarService';
 import { ICar, ICarSelected } from '../car/CarModels';
-import { Router } from '@angular/router';
 
 /**
  * Main view with card list
@@ -13,14 +12,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('modalCarDetail') public modalCarDetail: { show: Function };
   /** map with cars */
   protected cars: ICar;
   /** brand selected for user */
   protected brand: string;
+  /** Car selected  */
+  protected carDetail: ICarSelected = {};
   constructor(
-    private carService: CarService,
-    private router: Router
-  ) { }
+    private carService: CarService) { }
 
   public ngOnInit(): void {
     this.carService.getCars().subscribe((cars) => {
@@ -33,7 +33,11 @@ export class HomeComponent implements OnInit {
     this.brand = brand;
   }
 
+  /** open modal and show a  car
+   * @param carSelected 
+   */
   protected carSelected(carSelected: ICarSelected): void {
-    this.router.navigate(['detail'], { queryParams: carSelected });
+    this.carDetail = carSelected;
+    this.modalCarDetail.show();
   }
 }

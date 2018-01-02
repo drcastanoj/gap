@@ -62,7 +62,7 @@ export class CardComparasionComponent {
   /**
    * change a  car 
    */
-  protected carChange(): void {
+  protected changeCar(): void {
     this.filterCars = {};
     this.carSelected = undefined;
   }
@@ -70,8 +70,8 @@ export class CardComparasionComponent {
   /**
    * delete a car selected
    */
-  protected carDelete(): void {
+  protected deleteCar(): void {
     this.showInputs = false;
-    this.carChange();
+    this.changeCar();
   }
 }

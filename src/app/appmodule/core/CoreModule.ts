@@ -6,7 +6,6 @@ import { routes } from './AppRoutes';
 import { HomeComponent } from './home/HomeComponent';
 import { ComparisonComponent } from './comparison/ComparisonComponent';
 import { CommonModule } from '../common/CommonModule';
-import { DetailComponent } from './detail/DetailComponent';
 import { CarModule } from './car/CarModule';
 @NgModule({
   imports: [
@@ -17,8 +16,7 @@ import { CarModule } from './car/CarModule';
   ],
   declarations: [
     HomeComponent,
-    ComparisonComponent,
-    DetailComponent
+    ComparisonComponent
   ],
   providers: [
   ]

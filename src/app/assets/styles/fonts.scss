@@ -37,7 +37,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-plus-circle:before {
   content: "\62";
+}
+.icon-search-plus:before {
+  content: "\61";
 }
