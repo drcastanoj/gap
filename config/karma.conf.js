@@ -31,7 +31,7 @@ module.exports = function (config) {
     webpack: webpackConfig,
 
     webpackMiddleware: {
-      // stats: 'errors-only'
+       stats: 'errors-only'
     },
 
     webpackServer: {
@@ -49,7 +49,7 @@ module.exports = function (config) {
     reporters: reporters,
     // Configuración para reporte de junit
     junitReporter: {
-      outputDir: 'target/test-report/', // results will be saved as $outputDir/$browserName.xml
+      outputDir: 'reporters/test-report/', // results will be saved as $outputDir/$browserName.xml
       outputFile: undefined // if included, results will be saved as $outputDir/$browserName/$outputFile
     },
 
@@ -61,19 +61,19 @@ module.exports = function (config) {
       },
       reporters: [
         {
-          dir: 'target/coverage/',
+          dir: 'reporters/coverage/',
           subdir: '.',
           type: 'html'
         }, {
-          dir: 'target/coverage/',
+          dir: 'reporters/coverage/',
           subdir: '.',
           type: 'cobertura'
         }, {
-          dir: 'target/coverage/',
+          dir: 'reporters/coverage/',
           subdir: '.',
           type: 'json'
         }, {
-          dir: 'target/coverage/',
+          dir: 'reporters/coverage/',
           subdir: '.',
           type: 'lcovonly',
           file: 'coverage.lcov'

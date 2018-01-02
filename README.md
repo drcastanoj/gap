@@ -18,14 +18,6 @@ npm start
 ```
 go to [http://0.0.0.0:5000](http://0.0.0.0:5000) or [http://localhost:3000](http://localhost:5000) in your browser
 
-# Table of Contents
-* [Getting Started](#getting-started)
-* [Dependencies](#dependencies)
-* [Installing](#installing)
-* [Running the app](#running-the-app)
-* [Excecute Test and coverage](#configuration)
-* [Command execute ] (#other-commands)
-
 # Getting Started
 ## Dependencies
 What you need to run this app:
